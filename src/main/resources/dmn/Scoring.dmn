@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_1m2dggv" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.21.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <decision id="Decision_1v1eqmo" name="Scoring">
+    <decisionTable id="DecisionTable_0xomc1m" hitPolicy="ANY">
+      <input id="Input_1" label="is IE" camunda:inputVariable="inn">
+        <inputExpression id="InputExpression_1" typeRef="string" expressionLanguage="python">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0eyff7l" label="banned region" camunda:inputVariable="region">
+        <inputExpression id="LiteralExpression_16qohug" typeRef="integer" expressionLanguage="feel">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0zzwfm3" label="company capital" camunda:inputVariable="capital">
+        <inputExpression id="LiteralExpression_1e4u1z2" typeRef="integer" expressionLanguage="python">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0ipk51r" label="unsupported country" camunda:inputVariable="inn">
+        <inputExpression id="LiteralExpression_0zp7kym" typeRef="string" expressionLanguage="python">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Total Score" name="Scoring" typeRef="boolean" />
+      <rule id="DecisionRule_0mjj6e9">
+        <inputEntry id="UnaryTests_1q4rowt">
+          <text>string length(inn)!=12</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ptn3oy">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q4xrl6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14tyxuk">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1761dzm">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0q49gvq">
+        <inputEntry id="UnaryTests_0h04t7n">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08tqlky">
+          <text>24</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cj9txc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0znvzi9">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1d02o0l">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kvju43">
+        <inputEntry id="UnaryTests_1xyrbg1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0teobh4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r3sq28">
+          <text>&lt; 5000000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ar9pnh">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_046ed3a">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ttgknq">
+        <inputEntry id="UnaryTests_1ihn6vp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kwp690">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jif7m6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wr7jbi">
+          <text>starts with(inn, "9909")</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0smk31w">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0wwqrgh">
+        <inputEntry id="UnaryTests_1ygzj7u">
+          <text>string length(inn)=12</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pwou3v">
+          <text>not(24)</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sdj2x6">
+          <text>&gt;= 5000000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j6airq">
+          <text>not(starts with(inn, "9909"))</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0771zqn">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1v1eqmo">
+        <dc:Bounds height="80" width="180" x="150" y="80" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
